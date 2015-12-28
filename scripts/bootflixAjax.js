@@ -50,10 +50,9 @@ app.getMovieByTitle = function getMovieByTitle(title) {
      type: 'GET',
    })
    .done(function(data) {
-     console.log("success");
+     console.log('success');
      var movie = new app.MovieModel(data);
      console.log(movie);
-
      var view = new app.MovieView(movie);
      });
 
@@ -98,8 +97,8 @@ app.MovieModel = function MovieModel(options) {
  * @param options  - options object
  */
 app.MovieView = function MovieView(options) {
-
-  $( '#movie-listing').prepend("<div class='movie'><table><tr><td><img src='"+options.poster+"'alt='"+options.title+"'></td><td><h3>"+options.title+"</h3><p><strong>Released:</strong>"+options.year+"<br><strong>Directed By:</strong>"+options.director+"<br><em>"+options.genre+"</em></p><p>"+options.plot+"</p></td></tr></table></div>");
+  $('#movie-listing').html("");
+  $( '#movie-listing' ).prepend("<div class='movie'><table><tr><td><img src='"+options.poster+"'alt='"+options.title+"'></td><td><h3>"+options.title+"</h3><p><strong>Released:</strong>"+options.year+"<br><strong>Directed By:</strong>"+options.director+"<br><em>"+options.genre+"</em></p><p>"+options.plot+"</p></td></tr></table></div>");
 
   // options should contain the `model` for which the view is using
 
