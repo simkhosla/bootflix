@@ -99,7 +99,7 @@ app.MovieModel = function MovieModel(options) {
  */
 app.MovieView = function MovieView(options) {
 
-  $( '#movie-listing').append("<div class='movie'><table><tr><td><img src='"+options.poster+"'alt='"+options.title+"'></td><td><h3>"+options.title+"</h3><p><strong>Released:</strong>"+options.year+"<br><strong>Directed By:</strong>"+options.director+"<br><em>"+options.genre+"</em></p><p>"+options.plot+"</p></td></tr></table></div>");
+  $( '#movie-listing').prepend("<div class='movie'><table><tr><td><img src='"+options.poster+"'alt='"+options.title+"'></td><td><h3>"+options.title+"</h3><p><strong>Released:</strong>"+options.year+"<br><strong>Directed By:</strong>"+options.director+"<br><em>"+options.genre+"</em></p><p>"+options.plot+"</p></td></tr></table></div>");
 
   // options should contain the `model` for which the view is using
 
