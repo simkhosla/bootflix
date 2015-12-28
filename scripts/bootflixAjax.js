@@ -42,8 +42,20 @@ app.getMovieById = function getMovieById(id) {
  */
 app.getMovieByTitle = function getMovieByTitle(title) {
 
-  console.log("app.getMovieByTitle() has been called.  A title of '" + title + "' was entered");
 
+  console.log("app.getMovieByTitle() has been called.  A title of '" + title + "' was entered");
+  var changedTitle = title.split(' ').join('+');
+   $.ajax({
+     url: 'http://www.omdbapi.com/?t='+changedTitle+'&plot=full&r=json',
+     type: 'GET',
+   })
+   .done(function(data) {
+     console.log("success");
+     var movie = new app.MovieModel(data);
+     console.log(movie);
+
+     var view = new app.MovieView(movie);
+     });
 
   // request URL for omdb's title search:
   //http://www.omdbapi.com/?t=Die+Hard&y=1988&plot=full&r=json
